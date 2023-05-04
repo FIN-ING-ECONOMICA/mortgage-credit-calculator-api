@@ -9,3 +9,51 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum BANK {
+  INTERBANK
+  BBVA
+  BCP
+}
+
+model User {
+  id         String    @id @default(uuid())
+  name       String
+  email      String    @unique
+  password   String
+  phone      String
+  age        Int
+  homeAdress String
+  realState  RealSate?
+  Loan       Loan?
+}
+
+model RealSate {
+  id           String @id @default(uuid())
+  name         String
+  adress       String
+  price        Float
+  isBoughtById String @unique
+  isBoughtBy   User   @relation(fields: [isBoughtById], references: [id])
+}
+
+model Loan {
+  id             String @id @default(uuid())
+  name           String
+  amount         Float
+  currency       String
+  duration       Int
+  initialPayment Float
+  bank           BANK
+  isBorrowedById String @unique
+  isBorrowedBy   User   @relation(fields: [isBorrowedById], references: [id])
+  Bonus          Bonus?
+}
+
+model Bonus {
+  id            String @id @default(uuid())
+  name          String
+  amount        Float
+  isAppliedToId String @unique
+  isAppliedTo   Loan   @relation(fields: [isAppliedToId], references: [id])
+}
