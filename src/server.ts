@@ -2,6 +2,8 @@ import express from 'express';
 import router from './routes/realestate';
 import morgan from 'morgan';
 import cors from 'cors';
+import { protect } from './modules/auth';
+import { createUser, signIn } from './handlers/user';
 
 const app = express();
 
@@ -19,6 +21,9 @@ app.get('/', (req, res) => {
     res.json({message: 'Hello World!'});
 });
 
-app.use('/api', router);
+// the protect middleware will allow only authenticated users to access the api
+app.use('/api', protect, router)
+app.post('/signup', createUser)
+app.post('/signin', signIn)
 
 export default app
