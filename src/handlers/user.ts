@@ -9,7 +9,7 @@ export const createUser = async (req, res) => {
             email: req.body.email,
             password: await hashPassword(req.body.password),
             phone: req.body.phone,
-            age: req.body.age,
+            birthdate: req.body.birthdate,
             homeAdress: req.body.homeAdress
         }
     })
