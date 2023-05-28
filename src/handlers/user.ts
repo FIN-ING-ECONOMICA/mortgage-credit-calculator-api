@@ -11,7 +11,7 @@ export const createUser = async (req, res) => {
             password: await hashPassword(req.body.password),
             phone: req.body.phone,
             birthdate: req.body.birthdate,
-            homeAddress: req.body.homeAdress
+            homeAddress: req.body.homeAdress,
         }
     })
 
