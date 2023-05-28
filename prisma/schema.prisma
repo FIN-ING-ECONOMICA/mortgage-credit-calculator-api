@@ -19,6 +19,7 @@ enum BANK {
 model User {
   id          String    @id @default(uuid())
   name        String
+  lastName    String
   email       String    @unique
   password    String
   phone       String
