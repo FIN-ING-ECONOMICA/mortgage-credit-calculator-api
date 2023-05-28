@@ -6,11 +6,12 @@ export const createUser = async (req, res) => {
     const user = await prisma.user.create({
         data: {
             name: req.body.name,
+            lastName: req.body.lastName,
             email: req.body.email,
             password: await hashPassword(req.body.password),
             phone: req.body.phone,
             birthdate: req.body.birthdate,
-            homeAdress: req.body.homeAdress
+            homeAddress: req.body.homeAdress
         }
     })
 
