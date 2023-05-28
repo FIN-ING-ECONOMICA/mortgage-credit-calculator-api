@@ -17,15 +17,15 @@ enum BANK {
 }
 
 model User {
-  id         String    @id @default(uuid())
-  name       String
-  email      String    @unique
-  password   String
-  phone      String
-  birthdate  DateTime  @default(now())
-  homeAdress String
-  realState  RealSate?
-  Loan       Loan?
+  id          String    @id @default(uuid())
+  name        String
+  email       String    @unique
+  password    String
+  phone       String
+  birthdate   DateTime  @default(now())
+  homeAddress String
+  realState   RealSate?
+  Loan        Loan?
 }
 
 model RealSate {
