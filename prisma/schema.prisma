@@ -58,3 +58,17 @@ model Bonus {
   isAppliedToId String @unique
   isAppliedTo   Loan   @relation(fields: [isAppliedToId], references: [id])
 }
+
+model Payment {
+  id                    String @id @default(uuid())
+  amount                Float
+  tea                   Float
+  tep                   Float
+  initioalPayment       Float
+  payment               Float
+  mortgageLifeInsurance Float
+  allRiskInsurance      Float
+  currency              String
+  frequency             String
+  years                 Int
+}
