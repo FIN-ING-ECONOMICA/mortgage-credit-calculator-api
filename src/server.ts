@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { protect } from './modules/auth';
 import { createUser, signIn } from './handlers/user';
+import { createPayment } from './handlers/payment';
 
 const app = express();
 
@@ -25,5 +26,6 @@ app.get('/', (req, res) => {
 app.use('/api', protect, router)
 app.post('/signup', createUser)
 app.post('/signin', signIn)
+app.post('/payment', createPayment)
 
 export default app
