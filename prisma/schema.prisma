@@ -64,7 +64,7 @@ model Payment {
   amount                Float
   tea                   Float
   tep                   Float
-  initioalPayment       Float
+  initialPayment        Float
   payment               Float
   mortgageLifeInsurance Float
   allRiskInsurance      Float
